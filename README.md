@@ -13,5 +13,7 @@ below id the direct link
 https://illustrious-narwhal-f8edfa.netlify.app
 
 
-
+here is the senept of the finished
+hope u like it
 ![Screenshot 2022-09-23 234112](https://user-images.githubusercontent.com/93645760/192031749-6a220241-042b-407f-a061-9fbea2ed0680.png)
+
