@@ -1,17 +1,9 @@
 import './style.css'
 import * as THREE from 'three';
-import gsap from 'gsap'; 
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-//cursor
-const cursor = {
-  x: 0,
-  y: 0
-}
-window.addEventListener('mousemove', (event) => {
-  cursor.x = event.clientX / window.innerWidth -0.5;
-  cursor.y = event.clientY / window.innerHeight -0.5;
-  
-})
+
+
 
 //scene
 const scene = new THREE.Scene();
@@ -24,9 +16,7 @@ camera.position.x = 25;
 camera.position.y = 45;
 camera.position.z = 25;
 
-//add cordinate helper
-const axesHelper = new THREE.AxesHelper(50);
-// scene.add(axesHelper);
+
 
 
 //planet
@@ -89,7 +79,12 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.render(scene, camera);
 
 
-  // camera.lookAt(cube.position);
+//controls
+const controls = new OrbitControls(camera, canvas);
+controls.target.set(0, 0, 0);
+controls.enableDamping = true;
+
+
 //clock
 const clock = new THREE.Clock();
 //animation 
@@ -128,7 +123,12 @@ function animate() {
     star_6.position.x = Math.cos(elapsedTime * 0.1) * 42;
     star_6.position.z = Math.sin(elapsedTime * 0.1) * 42;
 
-    camera.lookAt(planet.position);
+      
+    //update controls
+    controls.update();
+
+
+
     renderer.render(scene, camera);
 } 
 animate();
